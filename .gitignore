@@ -1,0 +1,11 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+# Dossiers de cache
+node_modules/
+.vscode/settings.json
+# Fichiers temporaires
+*.tmp
+*.log
+# Fichiers de configuration personnelle
+config/local.json
