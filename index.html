@@ -1,16 +1,222 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevHub - Test Live Server</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta
+      name="description"
+      content="Portfolio de Yannick MURAT, développeur front-end junior spécialisé en HTML, CSS et JavaScript"
+    >
+    <title>DevHub Yannick MURAT | développeur Front-End</title>
+
+    <!-- Favicon (optionnel) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" >
+
+    <link rel="stylesheet" href="css/style.css" >
   </head>
   <body>
-    <h1>🚀 Live Server fonctionne !</h1>
-    <p>
-      Si vous voyez cette page, votre environnement est correctement configuré.
-    </p>
-    <p>et les modifications sont pris en compte</p>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <h1><a href="#accueil">DevHub</a></h1>
+        </div>
+        <nav class="main-navigation">
+          <ul class="nav-menu">
+            <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+            <li>
+              <a href="pages/portfolio.html" class="nav-link">Portfolio</a>
+            </li>
+            <li><a href="#about" class="nav-link">À propos</a></li>
+            <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            <li><a href="pages/blog.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+      <nav class="Breadcrumb" aria-label="fil d'Ariane">
+        <ol>
+          <li><a href="#accueil">Accueil</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <h2 class="hero-title">
+              Bonjour, je suis <span class="highlight">Yannick MURAT</span>
+            </h2>
+
+            <p class="hero-subtitle">Développeur Front-End Junior</p>
+            <p class="hero-description">
+              Passionné par la création d'expériences web modernes et
+              accecibles. Spécialisé en HTML5, CSS3 et JavaScript ES6+.
+            </p>
+            <div class="hero-actions">
+              <a href="pages/portfolio.html" class="btn btn-primary"
+                >Voir mes projets</a
+              >
+              <a href="pages/contact.html" class="btn btn-secondary"
+                >Me contacter</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="container">
+          <h2 class="section-title">À propos de moi</h2>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                <!-- TODO MAJ des infos -->
+                Diplomé en développement web, je me spécialise dans la création
+                d'interfaces utilisateur modernes et responsives. Ma passion
+                pour les technologies front-end me pousse à apprendre
+                continuellement et à suivre les meilleurs pratiques du secteur.
+              </p>
+              <p>
+                Mon approche combine créativité et rigueur techique pour livrer
+                des expériences web optimales, accecibles à tous les
+                utilisateurs.
+              </p>
+
+              <h3>Mon parcours</h3>
+              <ul class="timeline">
+                <!-- TODO MAJ des infos -->
+                <li><strong>2025</strong> - Formation DevHub (70h)</li>
+                <li><strong>2024</strong> - Autoformation HTML/CSS</li>
+                <li><strong>2023</strong> - Découverte du développement web</li>
+              </ul>
+            </div>
+
+            <div class="about-image">
+              <figure>
+                <img
+                  src="assets/images/profile.jpg"
+                  alt="Photo de profile de Yannick MURAT"
+                  class="profile-photo"
+                >
+                <figcaption>Développeur Front-End passionné</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services-section">
+        <div class="container">
+          <h2 class="section-title">Mes compétences</h2>
+          <p class="section-description">
+            Technologies et outils que je maîtrise pour créer des expériences
+            web modernes.
+          </p>
+
+          <div class="skills-grid">
+            <article class="skill-card">
+              <div class="skill-icon">
+                <span role="img" aria-label="HTML5">🌐</span>
+              </div>
+              <h3 class="skill-title">HTML5</h3>
+              <p class="skill-description">
+                Structure sémentique, accecibilité, optimisation SEO. Maîtrise
+                des nouvelles balises et APIs.
+              </p>
+              <div class="skill-level">
+                <span class="skill-label">Niveau :</span>
+                <span class="skill-value">Intermédiaire</span>
+              </div>
+            </article>
+            <article class="skill-card">
+              <div class="skill-icon">
+                <span role="img" aria-label="CSS3">🎨</span>
+              </div>
+              <h3 class="skill-title">CSS3</h3>
+              <p class="skill-description">
+                Design responsive, Flexbox, Grid, animations. Metodologies
+                modernes et performances optimisées.
+              </p>
+              <div class="skill-level">
+                <span class="skill-label">Niveau :</span>
+                <span class="skill-value">Intermédiaire</span>
+              </div>
+            </article>
+            <article class="skill-card">
+              <div class="skill-icon">
+                <span role="img" aria-label="JavaScript">⚡</span>
+              </div>
+              <h3 class="skill-title">JavaScript ES6+</h3>
+              <p class="skill-description">
+                Interactivité, manipulation DOM, APIs modernes. Approche
+                orientée composants et bonnes pratiques.
+              </p>
+              <div class="skill-level">
+                <span class="skill-label">Niveau :</span>
+                <span class="skill-value">Débutant</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <h2>Travaillons ensemble</h2>
+          <p>Vous avez un projet ? Contactons-nous pour en discuter !</p>
+          <a href="pages/contact.html" class="btn btn-primary"
+            >Commencer un projet</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>DevHub - Yannick MURAT</h3>
+            <p>Développeur Front-End Junior basé en France</p>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <address>
+              <p>
+                Email:
+                <a href="mailto:muratyannick.dev@gmail.com"
+                  >muratyannick.dev@gmail.com</a
+                >
+              </p>
+              <p>
+                LinkedIn :
+                <a
+                  href="https://www.linkedin.com/in/yannick-murat-847479339/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Votre Profil</a
+                >
+              </p>
+              <p>
+                GitHub :
+                <a
+                  href="https://github.com/MuratYannick"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Votre Repository</a
+                >
+              </p>
+            </address>
+          </div>
+
+          <div class="footer-legal">
+            <p>&copy; 2025 Yannick MURAT. Tous droits résérvés.</p>
+            <p>Réalisé dans le cadre de la formation DevHub.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
