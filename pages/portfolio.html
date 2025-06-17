@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta
+      name="description"
+      content="Portfolio de Yannick MURAT - Découvrez mes projets de développement front-end"
+    >
+    <meta name="author" content="Yannick MURAT" >
+    <title>Portfolio - DevHub | Yannick MURAT</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css" >
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <h1><a href="../index.html">Accueil</a></h1>
+        </div>
+
+        <nav class="breadcrumb" aria-label="fil d'Ariane">
+          <ol>
+            <li><a href="../index.html">Accueil</a></li>
+            <li aria-current="page">Portfolio</li>
+          </ol>
+        </nav>
+
+        <nav class="main-navigation">
+          <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="../index.html#about" class="nav-link">À propos</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <main class="main-content">
+      <!-- Hero Portfolio -->
+      <section class="portfolio-hero">
+        <div class="container">
+          <h2 class="hero-title">Mon Portfolio</h2>
+          <p class="hero-description">
+            Découvrez mes réalisations en développement front-end. Chaque projet
+            représente une étape dans mon apprentissage et ma passion pour créer
+            des expériences web modernes.
+          </p>
+        </div>
+      </section>
+
+      <!-- Filtres -->
+      <div class="portfolio-filters">
+        <div class="container">
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">
+              Tous les projets
+            </button>
+            <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+            <button class="filter-btn" data-filter="javascript">
+              JavaScript
+            </button>
+            <button class="filter-btn" data-filter="responsive">
+              Responsive
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grill de Projets -->
+      <div class="portfolio-grid-section">
+        <div class="container">
+          <div class="portfolio-grid">
+            <!-- Projet 1 -->
+            <article class="project-card" data-category="html-css responsive">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-1.jpg"
+                  alt="Capture d'écran du projet Site Vitrine Restaurant"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">HTML/CSS</span>
+                  <span class="project-date">Janvier 2025</span>
+                </div>
+                <h3 class="project-title">Site Vitrine Restaurant</h3>
+                <p class="project-description">
+                  Site vitrine responsive pour un restaurant local. Design
+                  moderne avec animations CSS et menu interactif.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">Responsive</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projet 2 -->
+            <article class="project-card" data-category="javascript responsive">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-2.jpg"
+                  alt="Capture d'écran du projet Application Météo"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">JavaScript</span>
+                  <span class="project-date">Février 2025</span>
+                </div>
+                <h3 class="project-title">Application Météo</h3>
+                <p class="project-description">
+                  Application météo en temps réel utilisant une API externe.
+                  Interface responsive avec géolocalisation automatique.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">API REST</span>
+                  <span class="tech-tag">Geolocation</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projet 3 -->
+            <article class="project-card" data-category="html-css javascript">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-3.jpg"
+                  alt="Capture d'écran du projet Gestionnaire de Tâches"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">Application Web</span>
+                  <span class="project-date">Mars 2025</span>
+                </div>
+                <h3 class="project-title">Gestionnaire de Tâches</h3>
+                <p class="project-description">
+                  Application de gestion de tâches avec localStorage. Interface
+                  drag & drop et système de priorités.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">JavaScript ES6+</span>
+                  <span class="tech-tag">LocalStorage</span>
+                  <span class="tech-tag">Drag & Drop</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projet 4 -->
+            <article class="project-card" data-category="responsive html-css">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-4.jpg"
+                  alt="Capture d'écran du projet Portfolio Personnel"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">Portfolio</span>
+                  <span class="project-date">Avril 2025</span>
+                </div>
+                <h3 class="project-title">Portfolio Personnel</h3>
+                <p class="project-description">
+                  Site portfolio personnel avec design moderne et animations.
+                  Optimisé pour les performances et l'accessibilité.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS Grid</span>
+                  <span class="tech-tag">Animations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projet 5 -->
+            <article class="project-card" data-category="javascript">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-5.jpg"
+                  alt="Capture d'écran du projet Quiz Interactif"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">JavaScript</span>
+                  <span class="project-date">Mai 2025</span>
+                </div>
+                <h3 class="project-title">Quiz Interactif</h3>
+                <p class="project-description">
+                  Quiz interactif avec système de score et timer. Questions
+                  chargées depuis un fichier JSON.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">JSON</span>
+                  <span class="tech-tag">Timer</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projet 6 -->
+            <article class="project-card" data-category="html-css responsive">
+              <div class="project-image">
+                <img
+                  src="../assets/images/project-6.jpg"
+                  alt="Capture d'écran du projet Landing Page"
+                >
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="btn btn-primary btn-sm"
+                      >Voir le projet</a
+                    >
+                    <a href="#" class="btn btn-secondary btn-sm">Code source</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-category">Landing Page</span>
+                  <span class="project-date">Juin 2025</span>
+                </div>
+                <h3 class="project-title">Landing Page Produit</h3>
+                <p class="project-description">
+                  Landing page moderne pour un produit tech. Design responsive
+                  avec call-to-actions optimisés.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">Mobile First</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <section class="cta-section">
+        <div class="container">
+          <h2>Intéressé par mon travail ?</h2>
+          <p>Collaborons ensemble sur votre prochain projet web !</p>
+          <a href="contact.html" class="btn btn-primary">Contactez-moi</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>DevHub - Yannick MURAT</h3>
+            <p>Développeur Front-End Junior basé en France</p>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <address>
+              <p>
+                Email:
+                <a href="mailto:muratyannick.dev@gmail.com"
+                  >muratyannick.dev@gmail.com</a
+                >
+              </p>
+              <p>
+                LinkedIn :
+                <a
+                  href="https://www.linkedin.com/in/yannick-murat-847479339/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >yannick-murat-847479339</a
+                >
+              </p>
+              <p>
+                GitHub :
+                <a
+                  href="https://github.com/MuratYannick"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >MuratYannick</a
+                >
+              </p>
+            </address>
+          </div>
+
+          <div class="footer-legal">
+            <p>&copy; 2025 Yannick MURAT. Tous droits résérvés.</p>
+            <p>Réalisé dans le cadre de la formation DevHub.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
