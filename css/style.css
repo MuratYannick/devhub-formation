@@ -156,6 +156,9 @@ a {
   --secondary-color-transparency: #2c3e5026;
   --accent-color-transparency: #e74c3c26;
 
+  --primary-light-transparency2: #a29bfecc;
+  --secondary-color-transparency2: #2c3e50cc;
+  --accent-color-transparency2: #e74c3ccc;
   /* couleurs transparente */
 
   /* Couleurs neutres */
@@ -461,19 +464,26 @@ a {
   justify-self: center;
 }
 
+
+
 /* ===== SECTION HERO ===== */
 .hero-section {
-  background: linear-gradient(
-    135deg,
-    var(--primary-light) 0%,
-    var(--secondary-color) 50%,
-    var(--accent-color) 100%
-  );
   color: var(--white);
   padding: var(--spacing-2xl) 0;
-  text-align: center;
+  
+  background-image: 
+  linear-gradient(135deg, 
+    var(--primary-light) 0%, 
+    var(--secondary-color) 35%,
+    var(--accent-color) 100%
+  ),
+  url(../assets/images/whiteBg.jpg);
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  overflow: hidden;
 }
 
 /* Effet de parallaxe subtil */
@@ -832,26 +842,25 @@ figcaption {
 
 /* Hero Portfolio */
 .portfolio-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-light) 0%,
-    var(--secondary-color) 50%,
-    var(--accent-color) 100%
-  );
 
   color: var(--white);
   padding: var(--spacing-2xl) 0;
   text-align: center;
-}
 
-/* effet parallax sur le hero */
+  background-image: 
+  linear-gradient(135deg, 
+    var(--primary-light) 0%, 
+    var(--secondary-color) 35%,
+    var(--accent-color) 100%
+  ),
+  url(../assets/images/whiteBg.jpg);
 
-/* TODO correctif sur l'effet parallax */
-/* .portfolio-hero {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-} */
+  background-repeat: no-repeat;
+  position: relative;
+}
 
 .portfolio-hero .hero-title {
   font-size: var(--font-size-2xl);
