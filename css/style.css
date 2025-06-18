@@ -838,6 +838,7 @@ figcaption {
     var(--secondary-color) 50%,
     var(--accent-color) 100%
   );
+
   color: var(--white);
   padding: var(--spacing-2xl) 0;
   text-align: center;
