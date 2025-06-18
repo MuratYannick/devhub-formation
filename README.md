@@ -71,3 +71,22 @@ devhub-formation/
 - **Typographie** : [Votre police choisie]
 - **Composants** : Boutons, cartes, navigation stylisée
 - **Animations** : Hover effects, transitions fluides
+
+### Sprint 1 - Fondations & Setup
+- [x] **Séquence 1** : Setup environnement & Git
+- [x] **Séquence 2** : Structure HTML5 sémantique
+- [x] **Séquence 3** : CSS3 fondamentaux et styling
+- [x] **Séquence 4** : Layout CSS moderne avec Grid & Flexbox
+- [ ] **Séquence 5** : Navigation & déploiement
+
+### Layout System
+- **CSS Grid** : Layouts bidimensionnels, grilles responsives
+- **Flexbox** : Alignements et distributions monodimensionnels
+- **Responsive** : Mobile-first avec breakpoints optimisés
+- **Utility Classes** : Système de classes réutilisables
+
+### Pages Créées
+- ✅ **Accueil** : Layout complet avec Grid et Flexbox optimisés
+- ✅ **Portfolio** : Grille de projets responsive avec filtres
+- 🔄 **Contact** : À créer en séquence 5
+- 🔄 **Blog** : À créer en Sprint 3

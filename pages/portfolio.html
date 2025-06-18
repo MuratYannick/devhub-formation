@@ -9,6 +9,17 @@
     >
     <meta name="author" content="Yannick MURAT" >
     <title>Portfolio - DevHub | Yannick MURAT</title>
+    
+    <!-- Open Graph pour réseaux sociaux -->
+    <meta property="og:title" content="DevHub - Yannick MURAT | Développeur Front-End">
+    <meta property="og:description" content="Portfolio de Yannick MURAT, développeur front-end junior spécialisé en HTML, CSS et JavaScript">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:url" content="https://MuratYannick.github.io/devhub-formation">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevHub - Yannick MURAT">
+    <meta name="twitter:description" content="Développeur Front-End Junior - Portfolio">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" >
@@ -36,6 +47,14 @@
           </ol>
         </nav>
 
+        <!-- Bouton menu hamburger -->
+        <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- navigation principale -->
         <nav class="main-navigation">
           <ul class="nav-menu">
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -46,6 +65,9 @@
           </ul>
         </nav>
       </div>
+
+      <!-- Overlay pour fermer le menu sur mobile -->
+      <div class="menu-overlay"></div>
     </header>
 
     <!-- main content -->
@@ -88,7 +110,7 @@
             <article class="project-card" data-category="html-css responsive">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-1.jpg"
+                  src="../assets/images/resaurant_screen.png"
                   alt="Capture d'écran du projet Site Vitrine Restaurant"
                 >
                 <div class="project-overlay">
@@ -122,7 +144,7 @@
             <article class="project-card" data-category="javascript responsive">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-2.jpg"
+                  src="../assets/images/meteo_screen.png"
                   alt="Capture d'écran du projet Application Météo"
                 >
                 <div class="project-overlay">
@@ -156,7 +178,7 @@
             <article class="project-card" data-category="html-css javascript">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-3.jpg"
+                  src="../assets/images/gestache_screen.png"
                   alt="Capture d'écran du projet Gestionnaire de Tâches"
                 >
                 <div class="project-overlay">
@@ -190,7 +212,7 @@
             <article class="project-card" data-category="responsive html-css">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-4.jpg"
+                  src="../assets/images/portfol_screen.png"
                   alt="Capture d'écran du projet Portfolio Personnel"
                 >
                 <div class="project-overlay">
@@ -224,7 +246,7 @@
             <article class="project-card" data-category="javascript">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-5.jpg"
+                  src="../assets/images/quizz-screen.png"
                   alt="Capture d'écran du projet Quiz Interactif"
                 >
                 <div class="project-overlay">
@@ -258,7 +280,7 @@
             <article class="project-card" data-category="html-css responsive">
               <div class="project-image">
                 <img
-                  src="../assets/images/project-6.jpg"
+                  src="../assets/images/landing-screen.png"
                   alt="Capture d'écran du projet Landing Page"
                 >
                 <div class="project-overlay">
@@ -347,5 +369,8 @@
         </div>
       </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
   </body>
 </html>
