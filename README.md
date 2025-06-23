@@ -90,3 +90,26 @@ devhub-formation/
 - ✅ **Portfolio** : Grille de projets responsive avec filtres
 - 🔄 **Contact** : À créer en séquence 5
 - 🔄 **Blog** : À créer en Sprint 3
+
+### ==== sprint 2 ==== ###
+
+## Système Responsive Mobile-First
+
+### Breakpoints
+- **Mobile Small** : 320px - 479px (base, styles par défaut)
+- **Mobile Large** : 480px - 767px (grands smartphones)
+- **Tablet** : 768px - 991px (tablettes portrait)
+- **Desktop Small** : 992px - 1199px (petits écrans)
+- **Desktop Large** : 1200px - 1399px (écrans standards)
+- **Desktop XL** : 1400px+ (grands écrans)
+
+### Stratégie
+1. **Mobile-first** : Styles de base pour mobile, enrichissement progressif
+2. **Touch-optimized** : Zones de touch minimales 44px
+3. **Fluid typography** : Utilisation de clamp() pour la typographie adaptative
+4. **No horizontal scroll** : Garantie zéro débordement horizontal
+
+### Tests
+- Chrome DevTools responsive mode
+- Tests sur devices réels iOS/Android
+- Validation accessibility (zoom 200%)
