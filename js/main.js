@@ -9,16 +9,19 @@ Description: Scripts pour navigation responsive et interactions
 
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== NAVIGATION RESPONSIVE =====
+  // ===== INITIALISATION MOBILE-FIRST =====
+  // initMobileOptimizations();
   initMobileNavigation();
-
-  // ===== ÉTATS ACTIFS DE NAVIGATION =====
   updateActiveNavigation();
-
-  // ===== SMOOTH SCROLL POUR LES ANCRES =====
   initSmoothScroll();
+  // initTouchOptimizations();
+  // initPortfolioFilters();
+  initScrollAnimations(); // 🆕 Nouvelle fonction
+  // initPerformanceMonitoring();
 
-  console.log("✅ DevHub scripts initialisés");
+  console.log("✅ DevHub scripts initialisés (Mobile-First + Animations)");
+  // console.log("📱 Device features:", DeviceFeatures);
+  console.log("📱 Device features:");
 });
 
 /**
@@ -186,6 +189,52 @@ function initScrollSpy() {
   sections.forEach((section) => observer.observe(section));
 
   console.log("✅ Scroll spy initialisé");
+}
+
+/**
+ * Initialise les animations au scroll avec Intersection Observer
+ */
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll"); // Cible maintenant les éléments avec cette classe
+
+  if (animatedElements.length === 0) {
+    console.log(
+      "ℹ️ Aucun élément à animer trouvé avec la classe '.animate-on-scroll'."
+    );
+    return;
+  }
+
+  const observerOptions = {
+    root: null, // Le viewport est le root
+    rootMargin: "0px", // Pas de marge supplémentaire
+    threshold: 0.1, // L'élément est considéré visible à 10% de sa hauteur dans le viewport
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // L'élément est visible
+        entry.target.classList.add("is-visible");
+        // Optionnel: Arrêter d'observer une fois l'animation déclenchée pour des animations non répétitives
+        // observer.unobserve(entry.target);
+      } else {
+        // L'élément n'est plus visible (peut être utile pour des animations qui se réinitialisent)
+        // Si vous voulez que l'animation se joue une seule fois, ne mettez pas cette ligne
+        // Si vous voulez que l'animation se rejoue à chaque fois que l'élément entre/sort du viewport:
+        entry.target.classList.remove("is-visible");
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+  console.log(
+    "✅ Animations au scroll initialisées avec Intersection Observer."
+  );
 }
 
 /**

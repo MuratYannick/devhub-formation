@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link" hidden>Aller au contenu principal</a>
     <header class="site-header">
       <div class="container">
         <div class="logo">
@@ -74,16 +74,16 @@
       <section id="hero" class="hero-section">
         <div class="container">
           <div class="hero-content">
-            <h2 class="hero-title">
+            <h2 id="hero-title" class="hero-title animate-slide-up animate-on-scroll">
               Bonjour, je suis <span class="highlight">Yannick MURAT</span>
             </h2>
 
-            <p class="hero-subtitle">Développeur Front-End Junior</p>
-            <p class="hero-description">
+            <p class="hero-subtitle animate-slide-up animate-on-scroll animate-delay-1">Développeur Front-End Junior</p>
+            <p  class="hero-description animate-slide-up animate-on-scroll animate-delay-2">
               Passionné par la création d'expériences web modernes et
               accecibles. Spécialisé en HTML5, CSS3 et JavaScript ES6+.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions animate-fade-in animate-on-scroll animate-delay-3">
               <a href="pages/portfolio.html" class="btn btn-primary"
                 >Voir mes projets</a
               >
@@ -95,12 +95,12 @@
         </div>
       </section>
 
-      <section id="about" class="about-section">
+      <section id="about" class="about-section" aria-labelledby="about-title">
         <div class="container">
-          <h2 class="section-title">À propos de moi</h2>
+          <h2  class="section-title animate-fade-in animate-on-scroll">À propos de moi</h2>
 
           <div class="about-content">
-            <div class="about-text">
+            <div class="about-text animate-slide-right animate-on-scroll">
               <p>
                 Diplomé en développement web, je me spécialise dans la création
                 d'interfaces utilisateur modernes et responsives. Ma passion
@@ -114,22 +114,36 @@
               </p>
 
               <h3>Mon parcours</h3>
-              <ul class="timeline">
-                <li><strong>2025</strong> - Formation développeur web et web mobile - HTML/CSS/JavaScript (en cours)</li>
-                <li><strong>2025</strong> - Formation DevHub (70h)</li>
-                <li><strong>2022</strong> - Autoformation à la programation 3D - C/C++/C#/Unity</li>
-                <li><strong>2020</strong> - Autoformation au développement d'application de bureau - VisualBasic/dotNet</li>
-                <li><strong>1996</strong> - Formation à la programmation d'automate industriel - PL7/Ladder/Assembleur</li>
-                <li><strong>1989</strong> - découverte de la programmation informatique</li>
+              <ul class="timeline" role="list">
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-1">
+                  <strong>2025</strong> - Formation développeur web et web mobile - HTML/CSS/JavaScript (en cours)
+                </li>
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-2">
+                  <strong>2025</strong> - Formation DevHub (70h)
+                </li>
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-3">
+                  <strong>2022</strong> - Autoformation à la programation 3D - C/C++/C#/Unity
+                </li>
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-4">
+                  <strong>2020</strong> - Autoformation au développement d'application de bureau - VisualBasic/dotNet
+                </li>
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-5">
+                  <strong>1996</strong> - Formation à la programmation d'automate industriel - PL7/Ladder/Assembleur
+                </li>
+                <li role="listitem" class="animate-slide-left animate-on-scroll animate-delay-6">
+                  <strong>1989</strong> - découverte de la programmation informatique
+                </li>
               </ul>
             </div>
 
-            <div class="about-image">
+            <div class="about-image animate-scale-up animate-delay-2">
               <figure>
-                <img
+                <img 
                   src="assets/images/profile.jpg"
                   alt="Photo de profile de Yannick MURAT"
                   class="profile-photo"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <figcaption>Développeur Front-End passionné</figcaption>
               </figure>
@@ -138,16 +152,16 @@
         </div>
       </section>
 
-      <section id="services" class="services-section">
+      <section id="services" class="services-section" aria-labelledby="skills-title">
         <div class="container">
-          <h2 class="section-title">Mes compétences</h2>
-          <p class="section-description">
+          <h2 id="skills-title" class="section-title animate-fade-in animate-on-scroll">Mes compétences</h2>
+          <p class="section-description animate-fade-in animate-on-scroll animate-delay-1">
             Technologies et outils que je maîtrise pour créer des expériences
             web modernes.
           </p>
 
-          <div class="skills-grid">
-            <article class="skill-card">
+          <div class="skills-grid" role="list">
+            <article class="skill-card animate-slide-up animate-on-scroll animate-delay-1" role="listitem">
               <div class="skill-icon">
                 <span role="img" aria-label="HTML5">🌐</span>
               </div>
@@ -161,7 +175,7 @@
                 <span class="skill-value">Intermédiaire</span>
               </div>
             </article>
-            <article class="skill-card">
+            <article class="skill-card animate-slide-up animate-on-scroll animate-delay-2" role="listitem">
               <div class="skill-icon">
                 <span role="img" aria-label="CSS3">🎨</span>
               </div>
@@ -175,7 +189,7 @@
                 <span class="skill-value">Intermédiaire</span>
               </div>
             </article>
-            <article class="skill-card">
+            <article class="skill-card animate-slide-up animate-on-scroll animate-delay-3" role="listitem">
               <div class="skill-icon">
                 <span role="img" aria-label="JavaScript">⚡</span>
               </div>
@@ -193,13 +207,14 @@
         </div>
       </section>
 
-      <section class="cta-section">
+      <section class="cta-section" aria-labelledby="cta-title">
         <div class="container">
-          <h2>Travaillons ensemble</h2>
-          <p>Vous avez un projet ? Contactons-nous pour en discuter !</p>
-          <a href="pages/contact.html" class="btn btn-primary"
-            >Commencer un projet</a
-          >
+          <h2 id="cta-title" class="animate-slide-up animate-on-scroll">Travaillons ensemble</h2>
+          <p class="animate-slide-up animate-on-scroll animate-delay-1">Vous avez un projet ? Contactons-nous pour en discuter !</p>
+          <div class="cta-actions animate-fade-in animate-on-scroll animate-delay-2">
+            <a href="pages/contact.html" class="btn btn-primary">Commencer un projet</a>
+            <a href="pages/portfolio.html" class="btn btn-secondary">Voir mes réalisations</a>
+          </div>
         </div>
       </section>
     </main>
