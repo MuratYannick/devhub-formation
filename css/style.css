@@ -64,6 +64,40 @@ POSITIONNEMENT :
 - Skip links : position: fixed
 */
 
+/*
+===============================================
+SYSTÈME D'ANIMATIONS AVANCÉES
+===============================================
+
+CLASSES D'ANIMATION AU SCROLL :
+- .animate-on-scroll : Animation générique
+- .animate-slide-up : Entrée par le bas
+- .animate-slide-left : Entrée par la droite
+- .animate-slide-right : Entrée par la gauche
+- .animate-fade-in : Apparition en fondu
+- .animate-scale-up : Entrée avec agrandissement
+
+DÉLAIS SÉQUENTIELS :
+- .animate-delay-1 à .animate-delay-6
+- Délais de 0.1s à 0.6s
+
+TIMING FUNCTIONS :
+- --ease-out-expo : Sortie exponentielle fluide
+- --ease-out-back : Effet de rebond subtil
+- --ease-out-bounce : Rebond prononcé
+
+MICRO-INTERACTIONS :
+- Boutons : Hover, focus, active avec transforms
+- Navigation : Effets de slide et underline
+- Cartes : Lift effect avec shadow et scale
+
+PERFORMANCE :
+- Transform et opacity uniquement
+- Will-change optimisé automatiquement
+- Respect de prefers-reduced-motion
+- Mobile-first avec adaptations
+*/
+
 /* ==== RESET ET BASE ==== */
 *,
 *::before,
@@ -142,6 +176,10 @@ a {
   --primary-light-transparency: #a29bfe26;
   --secondary-color-transparency: #2c3e5026;
   --accent-color-transparency: #e74c3c26;
+
+  --primary-light-transparency2: #a29bfe50;
+  --secondary-color-transparency2: #2c3e5050;
+  --accent-color-transparency2: #e74c3c50;
 
   /* Typographie */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -568,6 +606,7 @@ body.menu-open { overflow: hidden; }
   position: relative;
   text-align: center;
 }
+
 .hero-content { position: relative; z-index: 2; }
 .hero-title { font-size: var(--font-size-3xl); }
 .hero-subtitle { font-size: var(--font-size-xl); margin-bottom: var(--spacing-md); opacity: 0.9; }
@@ -595,6 +634,46 @@ figcaption { font-style: italic; color: var(--gray-medium); margin-top: var(--sp
 @media (min-width: 768px) {
   .about-content { grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr); }
   .profile-photo { width: 25rem; height: 25rem; }
+}
+
+/* Animation progressive de la timeline */
+.timeline li {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: 
+    opacity var(--duration-slower) var(--ease-out-expo),
+    transform var(--duration-slower) var(--ease-out-expo);
+}
+
+.timeline li.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Effet de typewriter sur les dates */
+.timeline li strong {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline li.is-visible strong::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-color);
+  animation: typewriter 0.8s ease-out;
+}
+
+@keyframes typewriter {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0;
+  }
 }
 
 /* ===== SECTION SKILLS ===== */
@@ -762,3 +841,133 @@ figcaption { font-style: italic; color: var(--gray-medium); margin-top: var(--sp
   left: -10px;
   z-index: 1;
 }
+
+/* ===== CARTES AVEC MICRO-INTERACTIONS AVANCÉES ===== */
+
+.skill-card {
+  transition: 
+    transform var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.skill-card::before {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-light), var(--accent-color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.skill-card:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+/* Animation de l'icône avec bounce */
+.skill-icon {
+  transition: transform var(--duration-normal) var(--ease-out-bounce);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation: iconBounce 0.6s var(--ease-out-bounce);
+}
+
+@keyframes iconBounce {
+  0%, 20%, 60%, 100% {
+    transform: scale(1.2) rotate(10deg) translateY(0);
+  }
+  40% {
+    transform: scale(1.2) rotate(10deg) translateY(-10px);
+  }
+  80% {
+    transform: scale(1.2) rotate(10deg) translateY(-5px);
+  }
+}
+
+/* Cartes de projet avec parallax subtil */
+.project-card {
+  perspective: 1000px;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.project-card:hover {
+  transform: translateY(-15px) rotateX(5deg);
+}
+
+.project-image {
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.project-card:hover .project-image {
+  transform: translateZ(20px);
+}
+
+/* Effet de masque sur l'overlay */
+.project-overlay {
+  background: linear-gradient(135deg, 
+    rgba(52, 152, 219, 0.9), 
+    rgba(46, 204, 113, 0.9));
+  backdrop-filter: blur(5px);
+  transition: 
+    opacity var(--duration-normal) var(--ease-out-expo),
+    backdrop-filter var(--duration-normal) var(--ease-out-expo);
+}
+
+.project-card:hover .project-overlay {
+  backdrop-filter: blur(10px);
+}
+
+/* Animation des liens dans l'overlay */
+.project-links .btn {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 
+    transform var(--duration-normal) var(--ease-out-expo),
+    opacity var(--duration-normal) var(--ease-out-expo);
+}
+
+.project-card:hover .project-links .btn:nth-child(1) {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.project-card:hover .project-links .btn:nth-child(2) {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+
+/* effet particules css */
+.hero-section::after,
+.portfolio-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--accent-color-transparency2), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--primary-light-transparency2), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--secondary-color-transparency2), transparent);
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  animation: particlesFloat 20s linear infinite;
+}
+
+@keyframes particlesFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-120px) rotate(360deg); }
+}
+
