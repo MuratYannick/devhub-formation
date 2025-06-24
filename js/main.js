@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initSmoothScroll();
   // initTouchOptimizations();
   // initPortfolioFilters();
-  initScrollAnimations(); // 🆕 Nouvelle fonction
+  initScrollAnimations();
   // initPerformanceMonitoring();
 
   console.log("✅ DevHub scripts initialisés (Mobile-First + Animations)");
@@ -232,6 +232,28 @@ function initScrollAnimations() {
     observer.observe(element);
   });
 
+  // Animation spéciale pour la timeline
+  const timelineItems = document.querySelectorAll(".timeline li");
+  timelineItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.2}s`;
+
+    const timelineObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add("is-visible");
+            }, index * 200);
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    timelineObserver.observe(item);
+  });
+  
   console.log(
     "✅ Animations au scroll initialisées avec Intersection Observer."
   );
