@@ -253,7 +253,7 @@ function initScrollAnimations() {
 
     timelineObserver.observe(item);
   });
-  
+
   console.log(
     "✅ Animations au scroll initialisées avec Intersection Observer."
   );
@@ -311,3 +311,379 @@ function debugNavigation() {
 
 // Fonction globale pour débugger (accessible depuis la console)
 window.debugNavigation = debugNavigation;
+
+/**
+ * Initialise la validation de formulaire
+ */
+function initFormValidation() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  // Éléments du formulaire
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const formStatus = document.getElementById("formStatus");
+  const messageTextarea = document.getElementById("message");
+  const messageCount = document.getElementById("messageCount");
+
+  // Configuration de validation
+  const validationRules = {
+    firstName: {
+      required: true,
+      minLength: 2,
+      pattern: /^[a-zA-ZÀ-ÿ\s-']+$/,
+      errorMessages: {
+        required: "Le prénom est obligatoire",
+        minLength: "Le prénom doit contenir au moins 2 caractères",
+        pattern: "Le prénom ne peut contenir que des lettres",
+      },
+    },
+    lastName: {
+      required: true,
+      minLength: 2,
+      pattern: /^[a-zA-ZÀ-ÿ\s-']+$/,
+      errorMessages: {
+        required: "Le nom est obligatoire",
+        minLength: "Le nom doit contenir au moins 2 caractères",
+        pattern: "Le nom ne peut contenir que des lettres",
+      },
+    },
+    email: {
+      required: true,
+      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      errorMessages: {
+        required: "L'adresse email est obligatoire",
+        pattern: "Veuillez saisir une adresse email valide",
+      },
+    },
+    phone: {
+      required: false,
+      pattern: /^[\d\s\-\+\(\)\.]+$/,
+      errorMessages: {
+        pattern: "Veuillez saisir un numéro de téléphone valide",
+      },
+    },
+    projectType: {
+      required: true,
+      errorMessages: {
+        required: "Veuillez sélectionner un type de projet",
+      },
+    },
+    subject: {
+      required: true,
+      minLength: 5,
+      maxLength: 100,
+      errorMessages: {
+        required: "Le sujet est obligatoire",
+        minLength: "Le sujet doit contenir au moins 5 caractères",
+        maxLength: "Le sujet ne peut pas dépasser 100 caractères",
+      },
+    },
+    message: {
+      required: true,
+      minLength: 20,
+      maxLength: 1000,
+      errorMessages: {
+        required: "Le message est obligatoire",
+        minLength: "Le message doit contenir au moins 20 caractères",
+        maxLength: "Le message ne peut pas dépasser 1000 caractères",
+      },
+    },
+    consent: {
+      required: true,
+      errorMessages: {
+        required:
+          "Vous devez accepter l'utilisation de vos données personnelles",
+      },
+    },
+  };
+
+  // Validation en temps réel
+  Object.keys(validationRules).forEach((fieldName) => {
+    const field = form.querySelector(`[name="${fieldName}"]`);
+    if (!field) return;
+
+    // Validation à la perte de focus
+    field.addEventListener("blur", () =>
+      validateField(field, validationRules[fieldName])
+    );
+
+    // Validation pendant la saisie (debounced)
+    if (field.type !== "checkbox" && field.type !== "select-one") {
+      field.addEventListener(
+        "input",
+        debounce(() => {
+          if (field.value.length > 0) {
+            validateField(field, validationRules[fieldName]);
+          }
+        }, 300)
+      );
+    } else {
+      field.addEventListener("change", () =>
+        validateField(field, validationRules[fieldName])
+      );
+    }
+  });
+
+  // Compteur de caractères pour le message
+  if (messageTextarea && messageCount) {
+    messageTextarea.addEventListener("input", () => {
+      const count = messageTextarea.value.length;
+      messageCount.textContent = count;
+
+      const countElement = messageCount.parentElement;
+      countElement.classList.remove("warning", "error");
+
+      if (count > 800) {
+        countElement.classList.add("warning");
+      }
+      if (count > 950) {
+        countElement.classList.add("error");
+      }
+    });
+  }
+
+  // Soumission du formulaire
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (submitBtn.classList.contains("loading")) return;
+
+    // Validation complète du formulaire
+    const isFormValid = validateForm(form, validationRules);
+
+    if (!isFormValid) {
+      showFormStatus(
+        "error",
+        "Veuillez corriger les erreurs avant de soumettre le formulaire"
+      );
+
+      // Focus sur le premier champ en erreur
+      const firstError = form.querySelector(
+        ".field-error input, .field-error select, .field-error textarea"
+      );
+      if (firstError) {
+        firstError.focus();
+        firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return;
+    }
+
+    // Simulation de soumission
+    await submitForm(form, submitBtn);
+  });
+
+  // Reset du formulaire
+  resetBtn.addEventListener("click", () => {
+    setTimeout(() => {
+      clearAllErrors(form);
+      hideFormStatus();
+      if (messageCount) messageCount.textContent = "0";
+    }, 10);
+  });
+
+  console.log("✅ Validation de formulaire initialisée");
+}
+
+/**
+ * Valide un champ individuel
+ */
+function validateField(field, rules) {
+  const fieldContainer = field.closest(".form-field");
+  const errorElement = fieldContainer.querySelector(".form-error");
+  const value = field.type === "checkbox" ? field.checked : field.value.trim();
+
+  // Nettoyer l'état précédent
+  clearFieldError(fieldContainer);
+
+  // Validation required
+  if (rules.required) {
+    if (!value || value === "" || value === false) {
+      showFieldError(
+        fieldContainer,
+        errorElement,
+        rules.errorMessages.required
+      );
+      return false;
+    }
+  }
+
+  // Si le champ est vide et non requis, pas d'autres validations
+  if (!value && !rules.required) {
+    showFieldSuccess(fieldContainer);
+    return true;
+  }
+
+  // Validation minLength
+  if (rules.minLength && value.length < rules.minLength) {
+    showFieldError(fieldContainer, errorElement, rules.errorMessages.minLength);
+    return false;
+  }
+
+  // Validation maxLength
+  if (rules.maxLength && value.length > rules.maxLength) {
+    showFieldError(fieldContainer, errorElement, rules.errorMessages.maxLength);
+    return false;
+  }
+
+  // Validation pattern
+  if (rules.pattern && !rules.pattern.test(value)) {
+    showFieldError(fieldContainer, errorElement, rules.errorMessages.pattern);
+    return false;
+  }
+
+  // Validation réussie
+  showFieldSuccess(fieldContainer);
+  return true;
+}
+
+/**
+ * Valide le formulaire complet
+ */
+function validateForm(form, validationRules) {
+  let isValid = true;
+
+  Object.keys(validationRules).forEach((fieldName) => {
+    const field = form.querySelector(`[name="${fieldName}"]`);
+    if (field) {
+      const fieldValid = validateField(field, validationRules[fieldName]);
+      if (!fieldValid) isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
+/**
+ * Affiche une erreur sur un champ
+ */
+function showFieldError(fieldContainer, errorElement, message) {
+  fieldContainer.classList.add("field-error");
+  fieldContainer.classList.remove("field-success");
+
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.style.display = "block";
+  }
+}
+
+/**
+ * Affiche le succès sur un champ
+ */
+function showFieldSuccess(fieldContainer) {
+  fieldContainer.classList.add("field-success");
+  fieldContainer.classList.remove("field-error");
+
+  const errorElement = fieldContainer.querySelector(".form-error");
+  if (errorElement) {
+    errorElement.textContent = "";
+    errorElement.style.display = "none";
+  }
+}
+
+/**
+ * Nettoie l'erreur d'un champ
+ */
+function clearFieldError(fieldContainer) {
+  fieldContainer.classList.remove("field-error", "field-success");
+
+  const errorElement = fieldContainer.querySelector(".form-error");
+  if (errorElement) {
+    errorElement.textContent = "";
+    errorElement.style.display = "none";
+  }
+}
+
+/**
+ * Nettoie toutes les erreurs du formulaire
+ */
+function clearAllErrors(form) {
+  const fieldContainers = form.querySelectorAll(".form-field");
+  fieldContainers.forEach((container) => {
+    clearFieldError(container);
+  });
+}
+
+/**
+ * Affiche un statut global du formulaire
+ */
+function showFormStatus(type, message) {
+  const formStatus = document.getElementById("formStatus");
+  if (!formStatus) return;
+
+  formStatus.className = `form-status ${type}`;
+  formStatus.textContent = message;
+  formStatus.style.display = "block";
+
+  // Scroll vers le message
+  formStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  // Focus pour les lecteurs d'écran
+  formStatus.setAttribute("tabindex", "-1");
+  formStatus.focus();
+
+  setTimeout(() => {
+    formStatus.removeAttribute("tabindex");
+  }, 100);
+}
+
+/**
+ * Masque le statut du formulaire
+ */
+function hideFormStatus() {
+  const formStatus = document.getElementById("formStatus");
+  if (formStatus) {
+    formStatus.style.display = "none";
+  }
+}
+
+/**
+ * Simule la soumission du formulaire
+ */
+async function submitForm(form, submitBtn) {
+  try {
+    // État de chargement
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
+    showFormStatus("loading", "Envoi de votre message en cours...");
+
+    // Simuler une requête réseau
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Simulation : 90% de succès
+    const success = Math.random() > 0.1;
+
+    if (success) {
+      // Succès
+      showFormStatus(
+        "success",
+        "✅ Votre message a été envoyé avec succès ! Je vous répondrai dans les 24h."
+      );
+      form.reset();
+      clearAllErrors(form);
+
+      // Reset du compteur de caractères
+      const messageCount = document.getElementById("messageCount");
+      if (messageCount) messageCount.textContent = "0";
+
+      // Suivi analytics (si implémenté)
+      console.log("📊 Formulaire soumis avec succès");
+    } else {
+      // Erreur simulée
+      showFormStatus(
+        "error",
+        "❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement par email."
+      );
+    }
+  } catch (error) {
+    console.error("Erreur lors de la soumission:", error);
+    showFormStatus(
+      "error",
+      "❌ Une erreur technique est survenue. Veuillez réessayer plus tard."
+    );
+  } finally {
+    // Restaurer l'état du bouton
+    submitBtn.classList.remove("loading");
+    submitBtn.disabled = false;
+  }
+}
