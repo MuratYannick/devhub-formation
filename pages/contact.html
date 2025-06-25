@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Contactez Yannick MURAT, développeur front-end junior. Formulaire de contact sécurisé pour vos projets web."
+    />
+    <meta name="author" content="Yannick MURAT" />
+    <meta
+      name="keywords"
+      content="contact, développeur, front-end, projets web, collaboration"
+    />
+    <title>Contact - DevHub | Yannick MURAT</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact - DevHub | [Votre Nom]" />
+    <meta
+      property="og:description"
+      content="Formulaire de contact pour collaborer avec Yannick MURAT"
+    />
+    <meta
+      property="og:url"
+      content="https://votre-username.github.io/devhub-formation/pages/contact.html"
+    />
+
+    <!-- Mobile optimizations -->
+    <meta name="theme-color" content="#3498db" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Skip link -->
+    <a href="#contact-main-content" class="skip-link" hidden
+      >Aller au contenu principal</a
+    >
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="logo">
+          <h1>
+            <a href="../index.html" aria-label="DevHub - Retour à l'accueil"
+              >DevHub</a
+            >
+          </h1>
+        </div>
+
+        <!-- Menu hamburger -->
+        <button
+          class="menu-toggle"
+          aria-label="Ouvrir le menu de navigation"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav
+          class="main-navigation"
+          id="main-navigation"
+          role="navigation"
+          aria-label="Navigation principale"
+        >
+          <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Accueil</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="../index.html#about" class="nav-link">À propos</a></li>
+            <li>
+              <a href="contact.html" class="nav-link active" aria-current="page"
+                >Contact</a
+              >
+            </li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+
+        <!-- Overlay -->
+        <div class="menu-overlay" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="contact-main-content" class="main-content" role="main">
+      <!-- Hero Contact -->
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-content">
+            <h1 id="contact-title" class="hero-title animate-delay-1">
+              Travaillons ensemble
+            </h1>
+            <p class="hero-description animate-slide-up animate-delay-2">
+              Vous avez un projet web en tête ? Une question ? Une opportunité ?
+              Je serais ravi d'échanger avec vous et de donner vie à vos idées.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Contact -->
+      <section class="contact-section" aria-labelledby="contact-form-title">
+        <div class="container">
+          <div class="contact-content">
+            <!-- Informations de contact -->
+            <div class="contact-info">
+              <h2 id="contact-form-title">Me contacter</h2>
+              <p class="contact-intro">
+                N'hésitez pas à me contacter pour discuter de votre projet. Je
+                m'engage à vous répondre dans les 24h.
+              </p>
+
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">✉️</div>
+                  <div class="contact-details">
+                    <h3>Email</h3>
+                    <a href="mailto:muratyannick.dev@gmail.com"
+                      >muratyannick.dev@gmail.com</a
+                    >
+                    <p>Réponse garantie sous 24h</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">💼</div>
+                  <div class="contact-details">
+                    <h3>LinkedIn</h3>
+                    <a
+                      href="https://www.linkedin.com/in/yannick-murat-847479339/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >yannick-murat-847479339</a
+                    >
+                    <p>Réseau professionnel</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">💻</div>
+                  <div class="contact-details">
+                    <h3>GitHub</h3>
+                    <a
+                      href="https://github.com/MuratYannick"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >MuratYannick</a
+                    >
+                    <p>Code et projets open source</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">📱</div>
+                  <div class="contact-details">
+                    <h3>Téléphone</h3>
+                    <a href="tel:+33633875950">+33 6 33 87 59 50</a>
+                    <p>Lundi au vendredi, 9h-18h</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="availability-status">
+                <div
+                  class="status-indicator available"
+                  aria-hidden="true"
+                ></div>
+                <span>Disponible pour nouveaux projets</span>
+              </div>
+            </div>
+
+            <!-- Formulaire de contact -->
+            <div class="contact-form-container">
+              <form
+                class="contact-form"
+                id="contactForm"
+                novalidate
+                aria-labelledby="form-title"
+              >
+                <h2 id="form-title" class="form-title">
+                  Envoyez-moi un message
+                </h2>
+
+                <!-- Message de statut global -->
+                <div
+                  class="form-status"
+                  id="formStatus"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  style="display: none"
+                ></div>
+
+                <!-- Informations personnelles -->
+                <fieldset class="form-group">
+                  <legend class="form-legend">Vos informations</legend>
+
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="firstName" class="form-label">
+                        Prénom
+                        <span class="required" aria-label="obligatoire">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        class="form-input"
+                        required
+                        autocomplete="given-name"
+                        autocapitalize="words"
+                        inputmode="text"
+                        placeholder="Votre prénom"
+                        aria-describedby="firstName-error firstName-help"
+                      />
+                      <div id="firstName-help" class="form-help">
+                        Votre prénom pour personnaliser ma réponse
+                      </div>
+                      <div
+                        id="firstName-error"
+                        class="form-error"
+                        role="alert"
+                        aria-live="assertive"
+                      ></div>
+                    </div>
+
+                    <div class="form-field">
+                      <label for="lastName" class="form-label">
+                        Nom
+                        <span class="required" aria-label="obligatoire">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        class="form-input"
+                        required
+                        autocomplete="family-name"
+                        autocapitalize="words"
+                        inputmode="text"
+                        placeholder="Votre nom"
+                        aria-describedby="lastName-error"
+                      />
+                      <div
+                        id="lastName-error"
+                        class="form-error"
+                        role="alert"
+                        aria-live="assertive"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="email" class="form-label">
+                        Email
+                        <span class="required" aria-label="obligatoire">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        required
+                        autocomplete="email"
+                        autocapitalize="none"
+                        inputmode="email"
+                        spellcheck="false"
+                        placeholder="votre@email.com"
+                        aria-describedby="email-error email-help"
+                      />
+                      <div id="email-help" class="form-help">
+                        Votre adresse email pour que je puisse vous répondre
+                      </div>
+                      <div
+                        id="email-error"
+                        class="form-error"
+                        role="alert"
+                        aria-live="assertive"
+                      ></div>
+                    </div>
+
+                    <div class="form-field">
+                      <label for="phone" class="form-label">Téléphone</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="form-input"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        placeholder="+33 1 23 45 67 89"
+                        aria-describedby="phone-error phone-help"
+                      />
+                      <div id="phone-help" class="form-help">
+                        Optionnel - pour un contact plus rapide
+                      </div>
+                      <div
+                        id="phone-error"
+                        class="form-error"
+                        role="alert"
+                        aria-live="assertive"
+                      ></div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Informations sur le projet -->
+                <fieldset class="form-group">
+                  <legend class="form-legend">Votre projet</legend>
+
+                  <div class="form-field">
+                    <label for="projectType" class="form-label">
+                      Type de projet
+                      <span class="required" aria-label="obligatoire">*</span>
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      class="form-select"
+                      required
+                      aria-describedby="projectType-error"
+                    >
+                      <option value="">-- Sélectionnez un type --</option>
+                      <option value="site-vitrine">Site vitrine</option>
+                      <option value="ecommerce">Site e-commerce</option>
+                      <option value="application-web">Application web</option>
+                      <option value="refonte">Refonte de site existant</option>
+                      <option value="maintenance">Maintenance/Support</option>
+                      <option value="formation">Formation/Consulting</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                    <div
+                      id="projectType-error"
+                      class="form-error"
+                      role="alert"
+                      aria-live="assertive"
+                    ></div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="budget" class="form-label"
+                      >Budget approximatif</label
+                    >
+                    <select
+                      id="budget"
+                      name="budget"
+                      class="form-select"
+                      aria-describedby="budget-help"
+                    >
+                      <option value="">-- Budget (optionnel) --</option>
+                      <option value="moins-1000">Moins de 1 000€</option>
+                      <option value="1000-3000">1 000€ - 3 000€</option>
+                      <option value="3000-5000">3 000€ - 5 000€</option>
+                      <option value="5000-10000">5 000€ - 10 000€</option>
+                      <option value="plus-10000">Plus de 10 000€</option>
+                      <option value="a-discuter">À discuter</option>
+                    </select>
+                    <div id="budget-help" class="form-help">
+                      M'aide à adapter ma proposition à vos besoins
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="timeline" class="form-label"
+                      >Délai souhaité</label
+                    >
+                    <select id="timeline" name="timeline" class="form-select">
+                      <option value="">-- Délai (optionnel) --</option>
+                      <option value="urgent">Urgent (moins d'1 mois)</option>
+                      <option value="1-2-mois">1-2 mois</option>
+                      <option value="2-3-mois">2-3 mois</option>
+                      <option value="plus-3-mois">Plus de 3 mois</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                </fieldset>
+
+                <!-- Message -->
+                <fieldset class="form-group">
+                  <legend class="form-legend">Votre message</legend>
+
+                  <div class="form-field">
+                    <label for="subject" class="form-label">
+                      Sujet
+                      <span class="required" aria-label="obligatoire">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      class="form-input"
+                      required
+                      autocomplete="off"
+                      autocapitalize="sentences"
+                      placeholder="Objet de votre message"
+                      aria-describedby="subject-error"
+                    />
+                    <div
+                      id="subject-error"
+                      class="form-error"
+                      role="alert"
+                      aria-live="assertive"
+                    ></div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="message" class="form-label">
+                      Message
+                      <span class="required" aria-label="obligatoire">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      class="form-textarea"
+                      required
+                      rows="6"
+                      autocomplete="off"
+                      autocapitalize="sentences"
+                      placeholder="Décrivez-moi votre projet, vos besoins, vos objectifs..."
+                      aria-describedby="message-error message-help"
+                    ></textarea>
+                    <div id="message-help" class="form-help">
+                      Plus votre description est détaillée, mieux je pourrai
+                      vous répondre
+                    </div>
+                    <div
+                      id="message-error"
+                      class="form-error"
+                      role="alert"
+                      aria-live="assertive"
+                    ></div>
+                    <div class="character-count">
+                      <span id="messageCount">0</span> / 1000 caractères
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Consentement -->
+                <fieldset class="form-group">
+                  <legend class="form-legend">Consentement</legend>
+
+                  <div class="form-field checkbox-field">
+                    <input
+                      type="checkbox"
+                      id="consent"
+                      name="consent"
+                      class="form-checkbox"
+                      required
+                      aria-describedby="consent-error consent-help"
+                    />
+                    <label for="consent" class="checkbox-label">
+                      J'accepte que mes données personnelles soient utilisées
+                      pour me recontacter concernant ma demande.
+                      <span class="required" aria-label="obligatoire">*</span>
+                    </label>
+                    <div id="consent-help" class="form-help">
+                      Vos données ne seront ni vendues, ni partagées avec des
+                      tiers
+                    </div>
+                    <div
+                      id="consent-error"
+                      class="form-error"
+                      role="alert"
+                      aria-live="assertive"
+                    ></div>
+                  </div>
+
+                  <div class="form-field checkbox-field">
+                    <input
+                      type="checkbox"
+                      id="newsletter"
+                      name="newsletter"
+                      class="form-checkbox"
+                    />
+                    <label for="newsletter" class="checkbox-label">
+                      Je souhaite recevoir occasionnellement des nouvelles de
+                      vos projets et articles
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- Bouton de soumission -->
+                <div class="form-actions">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-submit"
+                    id="submitBtn"
+                  >
+                    <span class="btn-text">Envoyer le message</span>
+                    <span class="btn-loading" aria-hidden="true">
+                      <span class="spinner"></span>
+                      Envoi en cours...
+                    </span>
+                  </button>
+
+                  <button type="reset" class="btn btn-secondary" id="resetBtn">
+                    Réinitialiser
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section FAQ -->
+      <section class="faq-section" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title" class="section-title">Questions fréquentes</h2>
+
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>Quel est votre délai de réponse ?</h3>
+              <p>
+                Je m'engage à répondre à tous les messages dans les 24h ouvrées.
+                Pour les demandes urgentes, n'hésitez pas à le préciser dans
+                votre message.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Travaillez-vous en remote ?</h3>
+              <p>
+                Oui, je travaille principalement en remote mais je peux me
+                déplacer en région parisienne pour des réunions importantes.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Quels types de projets acceptez-vous ?</h3>
+              <p>
+                Je me spécialise dans les sites vitrine, portfolios, et
+                applications web front-end. Je peux également intervenir sur des
+                refontes de sites existants.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Proposez-vous un devis gratuit ?</h3>
+              <p>
+                Oui, après notre premier échange pour comprendre vos besoins, je
+                vous propose un devis détaillé gratuit sous 48h.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>DevHub - Yannick MURAT</h3>
+            <p>Développeur Front-End Junior basé en France</p>
+            <p>Spécialisé dans les expériences web modernes et accessibles.</p>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact rapide</h4>
+            <address>
+              <p>
+                Email :
+                <a href="mailto:muratyannick.dev@gmail.com"
+                  >muratyannick.dev@gmail.com</a
+                >
+              </p>
+              <p>Tél : <a href="tel:+33633875950">+33 6 33 87 59 50</a></p>
+              <p>
+                LinkedIn :
+                <a
+                  href="https://www.linkedin.com/in/yannick-murat-847479339/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >yannick-murat-847479339</a
+                >
+              </p>
+            </address>
+          </div>
+
+          <div class="footer-legal">
+            <h4>Navigation</h4>
+            <p><a href="../index.html">Retour à l'accueil</a></p>
+            <p><a href="portfolio.html">Voir le portfolio</a></p>
+            <p><a href="../index.html#about">À propos de moi</a></p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Yannick MURAT. Tous droits réservés.</p>
+          <p>Formulaire sécurisé et conforme RGPD</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Schema.org pour SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact - Yannick MURAT",
+        "description": "Formulaire de contact pour collaborer avec Yannick MURAT, développeur front-end",
+        "url": "https://github.com/MuratYannick/pages/contact.html",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Yannick MURAT",
+          "jobTitle": "Développeur Front-End Junior",
+          "email": "muratyannick.dev@gmail.com",
+          "telephone": "+33633875950"
+        }
+      }
+    </script>
+  </body>
+</html>
