@@ -113,3 +113,17 @@ devhub-formation/
 - Chrome DevTools responsive mode
 - Tests sur devices réels iOS/Android
 - Validation accessibility (zoom 200%)
+
+### Sprint 2 - Design & Responsive
+- [x] **Séquence 6** : Mobile First & Responsive avancé
+- [x] **Séquence 7** : Animations CSS sophistiquées
+- [ ] **Séquence 8** : Formulaires & Validation
+- [ ] **Séquence 9** : CSS Avancé & Composants
+- [ ] **Séquence 10** : Optimisation & Sprint Review 2
+
+### Système d'Animations
+- **Scroll animations** : Intersection Observer avec 6 types d'entrée
+- **Micro-interactions** : Boutons, navigation, cartes avec feedback visuel
+- **Performance** : 60fps garanti avec transform/opacity uniquement
+- **Accessibility** : Respect prefers-reduced-motion et navigation clavier
+- **Mobile-optimized** : Timings et seuils adaptés aux devices tactiles
