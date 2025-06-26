@@ -7,6 +7,40 @@ Description: Scripts pour navigation responsive et interactions
 ===============================================
 */
 
+/*
+===============================================
+SYSTÈME DE VALIDATION DE FORMULAIRES
+===============================================
+
+VALIDATION HYBRIDE :
+- HTML5 : Validation native pour UX mobile
+- JavaScript : Validation temps réel avancée
+- CSS : États visuels et animations
+
+RÈGLES DE VALIDATION :
+- required : Champs obligatoires
+- pattern : Expressions régulières
+- minLength/maxLength : Longueur de texte
+- email : Format email
+
+FEEDBACK UTILISATEUR :
+- Temps réel : validation pendant la saisie
+- Visuel : couleurs, animations, icônes
+- Accessible : ARIA live regions, focus management
+
+OPTIMISATIONS MOBILE :
+- Claviers adaptatifs (inputmode)
+- Zoom prevention sur iOS
+- Viewport adaptation
+- Touch-friendly zones
+
+PERFORMANCE :
+- Debounce sur validation temps réel
+- Validation asynchrone pour API
+- Animation hardware-accelerated
+- Memory cleanup
+*/
+
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
   // ===== INITIALISATION MOBILE-FIRST =====
@@ -21,7 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("✅ DevHub scripts initialisés (Mobile-First + Animations)");
   // console.log("📱 Device features:", DeviceFeatures);
-  console.log("📱 Device features:");
+
+  console.log(
+    "📝 Form validation:",
+    document.getElementById("contactForm") ? "Activé" : "Non trouvé"
+  );
 });
 
 /**
@@ -216,7 +254,7 @@ function initScrollAnimations() {
         // L'élément est visible
         entry.target.classList.add("is-visible");
         // Optionnel: Arrêter d'observer une fois l'animation déclenchée pour des animations non répétitives
-        // observer.unobserve(entry.target);
+        observer.unobserve(entry.target);
       } else {
         // L'élément n'est plus visible (peut être utile pour des animations qui se réinitialisent)
         // Si vous voulez que l'animation se joue une seule fois, ne mettez pas cette ligne
@@ -687,3 +725,47 @@ async function submitForm(form, submitBtn) {
     submitBtn.disabled = false;
   }
 }
+
+// Gestion du clavier virtuel mobile
+function initMobileFormOptimizations() {
+  if (!DeviceFeatures.isMobile) return;
+  
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  
+  // Adaptation viewport pour iOS quand le clavier apparaît
+  const viewport = document.querySelector('meta[name=viewport]');
+  const originalViewport = viewport.getAttribute('content');
+  
+  form.addEventListener('focusin', (e) => {
+      if (e.target.matches('input, textarea, select')) {
+          // Empêcher le zoom sur iOS
+          viewport.setAttribute('content', 
+              'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+          
+          // Scroll vers le champ avec délai pour le clavier
+          setTimeout(() => {
+              e.target.scrollIntoView({ 
+                  behavior: 'smooth', 
+                  block: 'center' 
+              });
+          }, 300);
+      }
+  });
+  
+  form.addEventListener('focusout', (e) => {
+      if (e.target.matches('input, textarea, select')) {
+          // Restaurer le viewport
+          setTimeout(() => {
+              viewport.setAttribute('content', originalViewport);
+          }, 300);
+      }
+  });
+  
+  console.log('📱 Optimisations mobile formulaire activées');
+}
+
+// Appeler dans DOMContentLoaded
+initMobileFormOptimizations();
+
+
