@@ -44,6 +44,7 @@ PERFORMANCE :
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
   // ===== INITIALISATION MOBILE-FIRST =====
+  initFormValidation();
   initMobileFormOptimizations();
   initMobileNavigation();
   updateActiveNavigation();
@@ -53,7 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollAnimations();
   // initPerformanceMonitoring();
 
-  document.getElementById("contactForm").addEventListener("submit", e => e.preventDefault());
+  if (window.location.pathname.endsWith("/contact.html")) {
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", (e) => e.preventDefault());
+  }
 
   console.log("✅ DevHub scripts initialisés (Mobile-First + Animations)");
   console.log("📱 Device features:", DeviceFeatures);
@@ -455,11 +460,13 @@ function initFormValidation() {
     if (field.type !== "checkbox" && field.type !== "select-one") {
       field.addEventListener(
         "input",
-        debounce(() => {
-          if (field.value.length > 0) {
-            validateField(field, validationRules[fieldName]);
-          }
-        }, 300)
+        // debounce(() => {
+        //   if (field.value.length > 0) {
+        //     validateField(field, validationRules[fieldName]);
+        //   }
+        // }, 300) 
+        // TODO
+        console.log("debounce")
       );
     } else {
       field.addEventListener("change", () =>

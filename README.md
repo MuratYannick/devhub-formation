@@ -127,3 +127,17 @@ devhub-formation/
 - **Performance** : 60fps garanti avec transform/opacity uniquement
 - **Accessibility** : Respect prefers-reduced-motion et navigation clavier
 - **Mobile-optimized** : Timings et seuils adaptés aux devices tactiles
+
+### Sprint 2 - Design & Responsive
+- [x] **Séquence 6** : Mobile First & Responsive avancé
+- [x] **Séquence 7** : Animations CSS sophistiquées
+- [x] **Séquence 8** : Formulaires professionnels & Validation
+- [ ] **Séquence 9** : CSS Avancé & Composants
+- [ ] **Séquence 10** : Optimisation & Sprint Review 2
+
+### Système de Formulaires
+- **Validation hybride** : HTML5 + JavaScript temps réel
+- **Mobile-optimized** : Claviers adaptatifs, viewport management
+- **Accessibility** : ARIA complet, navigation clavier, focus management
+- **Performance** : Debounce, animations GPU, états de loading
+- **UX** : Messages contextuels, feedback visuel, progression
