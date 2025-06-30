@@ -44,7 +44,7 @@ PERFORMANCE :
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
   // ===== INITIALISATION MOBILE-FIRST =====
-  // initMobileOptimizations();
+  initMobileFormOptimizations();
   initMobileNavigation();
   updateActiveNavigation();
   initSmoothScroll();
@@ -53,13 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollAnimations();
   // initPerformanceMonitoring();
 
+  document.getElementById("contactForm").addEventListener("submit", e => e.preventDefault());
+
   console.log("✅ DevHub scripts initialisés (Mobile-First + Animations)");
-  // console.log("📱 Device features:", DeviceFeatures);
+  console.log("📱 Device features:", DeviceFeatures);
 
   console.log(
     "📝 Form validation:",
     document.getElementById("contactForm") ? "Activé" : "Non trouvé"
   );
+
+  debugNavigation();
 });
 
 /**
@@ -353,14 +357,15 @@ window.debugNavigation = debugNavigation;
 /**
  * Initialise la validation de formulaire
  */
-function initFormValidation() {
+
+function initFormValidation() { 
   const form = document.getElementById("contactForm");
   if (!form) return;
 
   // Éléments du formulaire
   const submitBtn = document.getElementById("submitBtn");
   const resetBtn = document.getElementById("resetBtn");
-  const formStatus = document.getElementById("formStatus");
+  // const formStatus = document.getElementById("formStatus");
   const messageTextarea = document.getElementById("message");
   const messageCount = document.getElementById("messageCount");
 
@@ -523,9 +528,11 @@ function initFormValidation() {
   console.log("✅ Validation de formulaire initialisée");
 }
 
+
 /**
  * Valide un champ individuel
  */
+
 function validateField(field, rules) {
   const fieldContainer = field.closest(".form-field");
   const errorElement = fieldContainer.querySelector(".form-error");
@@ -578,6 +585,7 @@ function validateField(field, rules) {
 /**
  * Valide le formulaire complet
  */
+
 function validateForm(form, validationRules) {
   let isValid = true;
 
@@ -592,9 +600,11 @@ function validateForm(form, validationRules) {
   return isValid;
 }
 
+
 /**
  * Affiche une erreur sur un champ
  */
+
 function showFieldError(fieldContainer, errorElement, message) {
   fieldContainer.classList.add("field-error");
   fieldContainer.classList.remove("field-success");
@@ -605,9 +615,11 @@ function showFieldError(fieldContainer, errorElement, message) {
   }
 }
 
+
 /**
  * Affiche le succès sur un champ
  */
+
 function showFieldSuccess(fieldContainer) {
   fieldContainer.classList.add("field-success");
   fieldContainer.classList.remove("field-error");
@@ -619,9 +631,11 @@ function showFieldSuccess(fieldContainer) {
   }
 }
 
+
 /**
  * Nettoie l'erreur d'un champ
  */
+
 function clearFieldError(fieldContainer) {
   fieldContainer.classList.remove("field-error", "field-success");
 
@@ -632,9 +646,11 @@ function clearFieldError(fieldContainer) {
   }
 }
 
+
 /**
  * Nettoie toutes les erreurs du formulaire
  */
+
 function clearAllErrors(form) {
   const fieldContainers = form.querySelectorAll(".form-field");
   fieldContainers.forEach((container) => {
@@ -642,9 +658,11 @@ function clearAllErrors(form) {
   });
 }
 
+
 /**
  * Affiche un statut global du formulaire
  */
+
 function showFormStatus(type, message) {
   const formStatus = document.getElementById("formStatus");
   if (!formStatus) return;
@@ -665,9 +683,11 @@ function showFormStatus(type, message) {
   }, 100);
 }
 
+
 /**
  * Masque le statut du formulaire
  */
+
 function hideFormStatus() {
   const formStatus = document.getElementById("formStatus");
   if (formStatus) {
@@ -675,9 +695,11 @@ function hideFormStatus() {
   }
 }
 
+
 /**
  * Simule la soumission du formulaire
  */
+
 async function submitForm(form, submitBtn) {
   try {
     // État de chargement
@@ -765,7 +787,5 @@ function initMobileFormOptimizations() {
   console.log('📱 Optimisations mobile formulaire activées');
 }
 
-// Appeler dans DOMContentLoaded
-initMobileFormOptimizations();
 
 
