@@ -171,17 +171,19 @@ a {
   --gray-light: #f8f9fa;
   --gray-medium: #6c757d;
   --gray-dark: #343a40;
+
   --success-color: #a29bfe;
   --error-color: #e74c3c;
-
+  --info-color: #bebe5a;
+  
   /* Transparences */
   --primary-light-transparency: #a29bfe26;
   --secondary-color-transparency: #2c3e5026;
   --accent-color-transparency: #e74c3c26;
 
-  --primary-light-transparency2: #a29bfe50;
-  --secondary-color-transparency2: #2c3e5050;
-  --accent-color-transparency2: #e74c3c50;
+  --primary-light-transparency2: #a29bfe60;
+  --secondary-color-transparency2: #2c3e5060;
+  --accent-color-transparency2: #e74c3c60;
 
   /* Typographie */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -205,6 +207,7 @@ a {
   --spacing-xl: clamp(3rem, 6vw, 4rem);
   --spacing-2xl: clamp(4rem, 8vw, 6rem);
 
+  --line-height-relaxed: 1.8rem;
   /* Layout */
   --container-max-width: 120rem;
   --container-padding: clamp(1.5rem, 4vw, 3rem);
@@ -828,6 +831,7 @@ figcaption {
   padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
   border-left: 3px solid var(--primary-color);
   position: relative;
+  white-space: nowrap;
 }
 .timeline li::before {
   content: "";
@@ -1255,7 +1259,7 @@ figcaption {
   }
 }
 
-/* ===== OPTIMISATIONS TOUCH (Depuis optm.css) ===== */
+/* ===== OPTIMISATIONS TOUCH ===== */
 
 /* Amélioration du scroll sur iOS */
 .scroll-container {
@@ -1433,6 +1437,9 @@ figcaption {
     transform: translateY(-120px) rotate(360deg);
   }
 }
+
+/* ===== PAGE CONTACT AVEC FORMULAIRES MODERNES ===== */
+
 
 .contact-hero {
   color: var(--white);
