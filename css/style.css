@@ -173,7 +173,7 @@ a {
   --gray-dark: #343a40;
 
   --success-color: #a29bfe;
-  --error-color: #e74c3c;
+  --error-color: #eb1700;
   --info-color: #bebe5a;
   
   /* Transparences */
@@ -954,7 +954,7 @@ figcaption {
   color: var(--gray-dark);
 }
 .skill-value {
-  background-color: var(--primary-light);
+  background-color: var(--primary-light-transparency2);
   color: var(--primary-dark);
   padding: 0.2rem 0.8rem;
   border-radius: var(--border-radius-md);
@@ -1166,8 +1166,8 @@ figcaption {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(52, 152, 219, 0.9),
-    rgba(46, 204, 113, 0.9)
+    var(--accent-color-transparency2),
+    var(--primary-light-transparency2)
   );
   display: flex;
   align-items: center;
@@ -1204,7 +1204,7 @@ figcaption {
   margin-bottom: var(--spacing-sm);
 }
 .project-category {
-  background-color: var(--primary-light);
+  background-color: var(--primary-light-transparency2);
   color: var(--primary-dark);
   padding: 0.2rem 0.8rem;
   border-radius: var(--border-radius-md);
@@ -1367,8 +1367,8 @@ figcaption {
 .project-overlay {
   background: linear-gradient(
     135deg,
-    rgba(52, 152, 219, 0.9),
-    rgba(46, 204, 113, 0.9)
+    var(--accent-color-transparency2),
+    var(--info-color)
   );
   backdrop-filter: blur(5px);
   transition: opacity var(--duration-normal) var(--ease-out-expo),
@@ -1555,7 +1555,7 @@ figcaption {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background-color: var(--success-color);
+  background-color: var(--primary-light-transparency2);
   color: var(--primary-dark);
   border-radius: var(--border-radius-md);
   font-weight: var(--font-weight-medium);
