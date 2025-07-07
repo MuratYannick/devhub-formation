@@ -1,3 +1,80 @@
+import Navigation from './modules/navigation.js';
+import { APP_CONFIG } from './config/constants.js';
+
+// Application principale
+class DevHubApp {
+    constructor() {
+        this.modules = new Map();
+        this.init();
+    }
+
+    async init() {
+        console.log(`🚀 ${APP_CONFIG.name} v${APP_CONFIG.version} - Initialisation...`);
+        
+        try {
+            // Initialiser les modules de base
+            await this.loadCoreModules();
+            
+            // Initialiser les modules de page
+            await this.loadPageModules();
+            
+            console.log('✅ Application initialisée avec succès');
+        } catch (error) {
+            console.error('❌ Erreur lors de l\'initialisation:', error);
+        }
+    }
+
+    async loadCoreModules() {
+        // Navigation (toujours présente)
+        const navigation = new Navigation();
+        this.modules.set('navigation', navigation);
+    }
+
+    async loadPageModules() {
+        const currentPage = this.getCurrentPage();
+        
+        switch (currentPage) {
+            case 'home':
+                await this.loadHomeModules();
+                break;
+            case 'portfolio':
+                await this.loadPortfolioModules();
+                break;
+            default:
+                console.log(`Page ${currentPage} : modules par défaut`);
+        }
+    }
+
+    getCurrentPage() {
+        const path = window.location.pathname;
+        if (path === '/' || path.includes('index')) return 'home';
+        if (path.includes('portfolio')) return 'portfolio';
+        return 'default';
+    }
+
+    async loadHomeModules() {
+        // Charger les modules spécifiques à la page d'accueil
+        // const { default: Weather } = await import('./modules/weather.js');
+        // this.modules.set('weather', new Weather());
+        console.log('📍 Modules page d\'accueil chargés');
+    }
+
+    async loadPortfolioModules() {
+        // Charger les modules du portfolio
+        // const { default: Portfolio } = await import('./modules/portfolio.js');
+        // this.modules.set('portfolio', new Portfolio());
+        console.log('📍 Modules portfolio chargés');
+    }
+}
+
+// Initialisation quand le DOM est prêt
+document.addEventListener('DOMContentLoaded', () => {
+    window.devHub = new DevHubApp();
+});
+
+// Export global pour debug
+window.DevHubApp = DevHubApp;
+
 /*
 ===============================================
 DevHub - Scripts principaux
@@ -40,6 +117,8 @@ PERFORMANCE :
 - Animation hardware-accelerated
 - Memory cleanup
 */
+
+
 
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
@@ -793,6 +872,4 @@ function initMobileFormOptimizations() {
   
   console.log('📱 Optimisations mobile formulaire activées');
 }
-
-
 
