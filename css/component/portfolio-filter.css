@@ -1,0 +1,95 @@
+.portfolio-filters {
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: var(--header-height, 80px);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: center;
+  padding: var(--space-md) 0;
+}
+
+.filter-btn {
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-xs) var(--space-md);
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.filter-btn:focus {
+  box-shadow: 0 0 0 3px var(--primary-color-alpha);
+  outline: none;
+}
+
+.filter-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.filter-btn.active::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--primary-color);
+  border-radius: inherit;
+  opacity: 0.3;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.1; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+.results-count {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-sm);
+  transition: all 0.3s ease;
+}
+
+/* Animations des cartes */
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center top;
+}
+
+.project-card.filtering {
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-tabs {
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-xs);
+  }
+  
+  .filter-btn {
+      font-size: var(--text-xs);
+      padding: var(--space-xs) var(--space-sm);
+  }
+}

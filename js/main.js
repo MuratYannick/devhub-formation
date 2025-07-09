@@ -1,3 +1,4 @@
+
 import Navigation from './modules/navigation.js';
 import { APP_CONFIG } from './config/constants.js';
 
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export global pour debug
 window.DevHubApp = DevHubApp;
 
+
 /*
 ===============================================
 DevHub - Scripts principaux
@@ -117,8 +119,6 @@ PERFORMANCE :
 - Animation hardware-accelerated
 - Memory cleanup
 */
-
-
 
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
@@ -442,7 +442,7 @@ window.debugNavigation = debugNavigation;
  * Initialise la validation de formulaire
  */
 
-function initFormValidation() { 
+function initFormValidation() {
   const form = document.getElementById("contactForm");
   if (!form) return;
 
@@ -543,7 +543,7 @@ function initFormValidation() {
         //   if (field.value.length > 0) {
         //     validateField(field, validationRules[fieldName]);
         //   }
-        // }, 300) 
+        // }, 300)
         // TODO
         console.log("debounce")
       );
@@ -613,7 +613,6 @@ function initFormValidation() {
 
   console.log("✅ Validation de formulaire initialisée");
 }
-
 
 /**
  * Valide un champ individuel
@@ -686,7 +685,6 @@ function validateForm(form, validationRules) {
   return isValid;
 }
 
-
 /**
  * Affiche une erreur sur un champ
  */
@@ -700,7 +698,6 @@ function showFieldError(fieldContainer, errorElement, message) {
     errorElement.style.display = "block";
   }
 }
-
 
 /**
  * Affiche le succès sur un champ
@@ -717,7 +714,6 @@ function showFieldSuccess(fieldContainer) {
   }
 }
 
-
 /**
  * Nettoie l'erreur d'un champ
  */
@@ -732,7 +728,6 @@ function clearFieldError(fieldContainer) {
   }
 }
 
-
 /**
  * Nettoie toutes les erreurs du formulaire
  */
@@ -743,7 +738,6 @@ function clearAllErrors(form) {
     clearFieldError(container);
   });
 }
-
 
 /**
  * Affiche un statut global du formulaire
@@ -769,7 +763,6 @@ function showFormStatus(type, message) {
   }, 100);
 }
 
-
 /**
  * Masque le statut du formulaire
  */
@@ -780,7 +773,6 @@ function hideFormStatus() {
     formStatus.style.display = "none";
   }
 }
-
 
 /**
  * Simule la soumission du formulaire
@@ -837,39 +829,40 @@ async function submitForm(form, submitBtn) {
 // Gestion du clavier virtuel mobile
 function initMobileFormOptimizations() {
   if (!DeviceFeatures.isMobile) return;
-  
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-  
-  // Adaptation viewport pour iOS quand le clavier apparaît
-  const viewport = document.querySelector('meta[name=viewport]');
-  const originalViewport = viewport.getAttribute('content');
-  
-  form.addEventListener('focusin', (e) => {
-      if (e.target.matches('input, textarea, select')) {
-          // Empêcher le zoom sur iOS
-          viewport.setAttribute('content', 
-              'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-          
-          // Scroll vers le champ avec délai pour le clavier
-          setTimeout(() => {
-              e.target.scrollIntoView({ 
-                  behavior: 'smooth', 
-                  block: 'center' 
-              });
-          }, 300);
-      }
-  });
-  
-  form.addEventListener('focusout', (e) => {
-      if (e.target.matches('input, textarea, select')) {
-          // Restaurer le viewport
-          setTimeout(() => {
-              viewport.setAttribute('content', originalViewport);
-          }, 300);
-      }
-  });
-  
-  console.log('📱 Optimisations mobile formulaire activées');
-}
 
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  // Adaptation viewport pour iOS quand le clavier apparaît
+  const viewport = document.querySelector("meta[name=viewport]");
+  const originalViewport = viewport.getAttribute("content");
+
+  form.addEventListener("focusin", (e) => {
+    if (e.target.matches("input, textarea, select")) {
+      // Empêcher le zoom sur iOS
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      );
+
+      // Scroll vers le champ avec délai pour le clavier
+      setTimeout(() => {
+        e.target.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 300);
+    }
+  });
+
+  form.addEventListener("focusout", (e) => {
+    if (e.target.matches("input, textarea, select")) {
+      // Restaurer le viewport
+      setTimeout(() => {
+        viewport.setAttribute("content", originalViewport);
+      }, 300);
+    }
+  });
+
+  console.log("📱 Optimisations mobile formulaire activées");
+}
